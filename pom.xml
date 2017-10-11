@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>top.bingchenglin</groupId>
+    <artifactId>easyframework-parent</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>easyframework-commons-dao</module>
+        <module>easyframework-commons-biz</module>
+        <module>easyframework-commons-web</module>
+        <module>easyframework-commons-util</module>
+    </modules>
+    <build>
+        <!-- Filter Resources File -->
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+            <!-- Aspectj Maven Plugin
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>aspectj-maven-plugin</artifactId>
+            </plugin> -->
+        </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>2.3</version>
+                    <configuration>
+                        <encoding>${project.build.sourceEncoding}</encoding>
+                        <source>${jdk.version}</source>
+                        <target>${jdk.version}</target>
+                        <compilerArguments>
+                            <verbose />
+                            <bootclasspath>${java.home}/lib/rt.jar;${java.home}/lib/jce.jar</bootclasspath>
+                        </compilerArguments>
+                    </configuration>
+                </plugin>
+                <!-- ============================================ -->
+                <!-- Aspectj plugin -->
+                <!-- ============================================ -->
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>aspectj-maven-plugin</artifactId>
+                    <version>1.7</version>
+                    <configuration>
+                        <verbose>true</verbose>
+                        <privateScope>true</privateScope>
+                        <encoding>${project.build.sourceEncoding}</encoding>
+                        <showWeaveInfo>true</showWeaveInfo>
+                        <complianceLevel>${jdk.version}</complianceLevel>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>compile</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <properties>
+        <open.common.version>0.0.1-SNAPSHOT</open.common.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
+        <db2.driver.version>1.3.1</db2.driver.version>
+        <jdk.version>1.7</jdk.version>
+        <aspectj.runtime.version>1.8.9</aspectj.runtime.version>
+    </properties>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.asiainfo.gdm.jcoc</groupId>
+                <artifactId>jcoc-bom</artifactId>
+                <version>2.1-SNAPSHOT</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.asiainfo.gdm.jcoc</groupId>
+                <artifactId>jcoc-common</artifactId>
+                <version>2.1-SNAPSHOT</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-framework-bom</artifactId>
+                <version>4.2.4.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.3.2</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>dubbo</artifactId>
+                <version>2.8.4</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>javax.servlet</groupId>
+                        <artifactId>javax.servlet-api</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>javax.servlet</groupId>
+                        <artifactId>servlet-api</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>log4j</groupId>
+                        <artifactId>log4j</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.zookeeper</groupId>
+                <artifactId>zookeeper</artifactId>
+                <version>3.4.5</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>log4j</groupId>
+                        <artifactId>log4j</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency><!--zookeeper -->
+                <groupId>com.github.sgroschupf</groupId>
+                <artifactId>zkclient</artifactId>
+                <version>0.1</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>log4j</groupId>
+                        <artifactId>log4j</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.resteasy</groupId>
+                <artifactId>resteasy-jaxrs</artifactId>
+                <version>3.0.7.Final</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.resteasy</groupId>
+                <artifactId>resteasy-client</artifactId>
+                <version>3.0.7.Final</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.validation</groupId>
+                <artifactId>validation-api</artifactId>
+                <version>1.0.0.GA</version>
+            </dependency>
+
+            <!-- 如果要使用json序列化 -->
+            <dependency>
+                <groupId>org.jboss.resteasy</groupId>
+                <artifactId>resteasy-jackson-provider</artifactId>
+                <version>3.0.7.Final</version>
+            </dependency>
+
+            <!-- 如果要使用xml序列化 -->
+            <dependency>
+                <groupId>org.jboss.resteasy</groupId>
+                <artifactId>resteasy-jaxb-provider</artifactId>
+                <version>3.0.7.Final</version>
+            </dependency>
+
+            <!-- 如果要使用netty server -->
+            <dependency>
+                <groupId>org.jboss.resteasy</groupId>
+                <artifactId>resteasy-netty</artifactId>
+                <version>3.0.7.Final</version>
+            </dependency>
+
+            <!-- 如果要使用Sun HTTP server -->
+            <dependency>
+                <groupId>org.jboss.resteasy</groupId>
+                <artifactId>resteasy-jdk-http</artifactId>
+                <version>3.0.7.Final</version>
+            </dependency>
+
+            <!-- 如果要使用tomcat server -->
+            <dependency>
+                <groupId>org.apache.tomcat.embed</groupId>
+                <artifactId>tomcat-embed-core</artifactId>
+                <version>8.0.11</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.tomcat.embed</groupId>
+                <artifactId>tomcat-embed-logging-juli</artifactId>
+                <version>8.0.11</version>
+            </dependency>
+
+            <!-- 如果要使用jetty server -->
+            <dependency>
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>jetty</artifactId>
+                <version>6.1.26</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.asiainfo</groupId>
+                <artifactId>spring-mq</artifactId>
+                <version>0.0.2-SNAPSHOT</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-log4j12</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.codehaus.jackson</groupId>
+                <artifactId>jackson-mapper-asl</artifactId>
+                <version>1.9.11</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>1.1.41</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>1.0.26</version>
+            </dependency>
+
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.12</version>
+                <scope>test</scope>
+            </dependency>
+
+            <!-- DB2 Driver -->
+            <dependency>
+                <groupId>org.ibm.db2</groupId>
+                <artifactId>driver-db2jcc</artifactId>
+                <version>${db2.driver.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.ibm.db2</groupId>
+                <artifactId>driver-db2jcc_license_cisuz</artifactId>
+                <version>${db2.driver.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+            <!--oracle driver-->
+            <dependency>
+                <groupId>com.oracle</groupId>
+                <artifactId>ojdbc6</artifactId>
+                <version>11.1.0.7.0</version>
+            </dependency>
+            <dependency>
+                <groupId>redis.clients</groupId>
+                <artifactId>jedis</artifactId>
+                <version>2.9.0</version>
+            </dependency>
+            <!-- AspectJ
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjrt</artifactId>
+                <version>${aspectj.runtime.version}</version>
+            </dependency>-->
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjweaver</artifactId>
+                <version>${aspectj.runtime.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
+    <profiles>
+        <profile>
+            <id>was</id>
+            <activation>
+                <property>
+                    <name>was</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <dependencyManagement>
+                <dependencies>
+                    <dependency>
+                        <groupId>dom4j</groupId>
+                        <artifactId>dom4j</artifactId>
+                        <version>1.6.1</version>
+                        <exclusions>
+                            <exclusion>
+                                <groupId>xml-apis</groupId>
+                                <artifactId>xml-apis</artifactId>
+                            </exclusion>
+                        </exclusions>
+                    </dependency>
+                </dependencies>
+            </dependencyManagement>
+        </profile>
+
+        <!-- ================================================================================= -->
+        <!--
+            Develop Factory(开发厂):指开发测试环境，构建命令：mvn clean package -Denv=devFty
+            Test Factory(测试厂):指测试人员测试环境，构建命令：mvn clean package -Denv=testFty
+            UAT Factory(UAT测试厂):指UAT测试环境，构建命令：mvn clean package -Denv=uatFty
+            Produce Factory(生产厂):指应用生产环境，构建命令：mvn clean package -Denv=proFty
+             -->
+        <!-- ================================================================================= -->
+        <!-- 开发厂 -->
+        <profile>
+            <id>Develop Factory</id>
+            <activation>
+                <property>
+                    <name>env</name>
+                    <value>devFty</value>
+                </property>
+            </activation>
+            <properties>
+                <open.prop.ds></open.prop.ds>
+                <open.log.basedir description="日志文件log4j2.xml的basedir">./logs/open</open.log.basedir>
+                <redis.conf.file.path description="redis配置文件地址">classpath:redis.properties</redis.conf.file.path>
+                <conf.file.path>ftp://ng3:123456@172.16.1.219/projects/FTP_properties/</conf.file.path>
+            </properties>
+        </profile>
+
+        <!-- 测试厂 -->
+        <profile>
+            <id>Test Factory</id>
+            <activation>
+                <property>
+                    <name>env</name>
+                    <value>testFty</value>
+                </property>
+            </activation>
+            <properties>
+                <conf.file.path>ftp://wasadmin:wasadmin@192.169.128.207/projects/FTP_properties/</conf.file.path>
+                <open.log.basedir description="日志文件log4j2.xml的basedir">./logs/open</open.log.basedir>
+                <!--<redis.conf.file.path description="redis配置文件地址">/open/redis.properties</redis.conf.file.path>-->
+            </properties>
+        </profile>
+
+        <!-- UAT厂 -->
+        <profile>
+            <id>UAT Factory</id>
+            <activation>
+                <property>
+                    <name>env</name>
+                    <value>uatFty</value>
+                </property>
+            </activation>
+            <properties>
+                <open.prop.ds>-uat</open.prop.ds>
+                <conf.file.path>ftp://wasadmin:wasadmin@10.252.187.204/projects/FTP_properties/</conf.file.path>
+                <open.log.basedir description="日志文件log4j2.xml的basedir">./logs/open</open.log.basedir>
+                <!--<redis.conf.file.path description="redis配置文件地址">/open/redis.properties</redis.conf.file.path>-->
+            </properties>
+        </profile>
+
+        <!-- 生产厂 -->
+        <profile>
+            <id>Produce Factory</id>
+            <activation>
+                <property>
+                    <name>env</name>
+                    <value>proFty</value>
+                </property>
+            </activation>
+            <properties>
+                <!--<open.log.basedir description="日志文件log4j2.xml的basedir">./logs/open</open.log.basedir>-->
+                <!--<redis.conf.file.path description="redis配置文件地址">/open/redis.properties</redis.conf.file.path>-->
+            </properties>
+        </profile>
+    </profiles>
+
+</project>

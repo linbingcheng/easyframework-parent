@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:trans="http://www.bingchenglin.top/easyframework/translation"
+           targetNamespace="http://www.bingchenglin.top/easyframework/translation"
+           elementFormDefault="qualified">
+
+    <xs:element name="translation" type="trans:Translation"/>
+    <xs:complexType name="Translation">
+        <xs:sequence>
+            <xs:element name="handler" type="trans:Handler" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="dictionary" type="trans:Dictionary" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Handler">
+        <xs:sequence>
+            <xs:element name="symbol">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:length value="1"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="class" type="xs:string"/>
+            <xs:element name="description" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Dictionary">
+        <xs:sequence>
+            <xs:element name="group" type="xs:string"/>
+            <xs:element name="description" type="xs:string" minOccurs="0"/>
+            <xs:choice>
+                <xs:element name="item" type="trans:Item" maxOccurs="unbounded"/>
+                <xs:element name="entity" type="trans:Entity"/>
+            </xs:choice>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Item">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="code" type="xs:string" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="Entity">
+        <xs:sequence>
+            <xs:element name="class" type="xs:string"/>
+            <xs:element name="displayField" type="xs:string"/>
+            <xs:element name="valueField" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
