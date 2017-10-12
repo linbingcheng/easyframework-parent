@@ -1,4 +1,4 @@
-package top.bingchenglin.easyframework.easyframwork.commons.dao.nosql.redis;
+package top.bingchenglin.easyframework.commons.dao.nosql.redis;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -20,7 +20,7 @@ public class RedisAspect {
 	@Autowired
 	public ValueOperations<String, Object> valueOperations;
 	
-	@Pointcut("@annotation(top.bingchenglin.easyframework.easyframwork.commons.dao.nosql.redis.RedisOpt)")
+	@Pointcut("@annotation(top.bingchenglin.easyframework.commons.dao.nosql.redis.comm.RedisOpt")
 	public void serviceAspect() {
 		
 	}

@@ -1,10 +1,11 @@
-package top.bingchenglin.easyframework.easyframwork.commons.dao.db;
+package top.bingchenglin.easyframework.commons.dao.db;
 
 
+import top.bingchenglin.easyframework.commons.dao.db.BaseRepository;
+import top.bingchenglin.easyframework.commons.dao.db.query.DBQueryConverter;
 import top.bingchenglin.easyframework.commons.util.FreeMarkerTools;
-import top.bingchenglin.easyframework.easyframwork.commons.dao.db.query.DBQueryConverter;
-import top.bingchenglin.easyframework.easyframwork.commons.dao.param.DBQueryParam;
-import top.bingchenglin.easyframework.easyframwork.commons.dao.param.DataPackage;
+import top.bingchenglin.easyframework.commons.dao.param.DBQueryParam;
+import top.bingchenglin.easyframework.commons.dao.param.DataPackage;
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;

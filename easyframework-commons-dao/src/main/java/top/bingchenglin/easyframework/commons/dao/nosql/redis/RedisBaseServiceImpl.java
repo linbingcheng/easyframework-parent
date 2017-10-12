@@ -1,4 +1,4 @@
-package top.bingchenglin.easyframework.easyframwork.commons.dao.nosql.redis;
+package top.bingchenglin.easyframework.commons.dao.nosql.redis;
 
 
 import org.apache.commons.beanutils.PropertyUtils;
@@ -14,7 +14,7 @@ import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.data.util.ClassTypeInformation;
 import org.springframework.data.util.TypeInformation;
 import org.springframework.util.ClassUtils;
-import top.bingchenglin.easyframework.easyframwork.commons.dao.param.DBQueryParam;
+import top.bingchenglin.easyframework.commons.dao.param.DBQueryParam;
 import top.bingchenglin.easyframework.commons.util.DateUtil;
 
 import javax.persistence.Table;

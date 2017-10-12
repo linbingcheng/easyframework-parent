@@ -1,8 +1,8 @@
-package top.bingchenglin.easyframework.easyframwork.commons.dao.param;
+package top.bingchenglin.easyframework.commons.dao.param;
 
 
-import top.bingchenglin.commons.dao.util.EntityUtil;
 import org.codehaus.jackson.annotate.JsonIgnore;
+import top.bingchenglin.easyframework.commons.util.EntityUtil;
 
 import java.io.Serializable;
 import java.util.ArrayList;

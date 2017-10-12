@@ -1,4 +1,4 @@
-package top.bingchenglin.easyframework.easyframwork.commons.dao.nosql.mongodb;
+package top.bingchenglin.easyframework.commons.dao.nosql.mongodb;
 
 import org.springframework.data.repository.NoRepositoryBean;
 import org.springframework.data.repository.PagingAndSortingRepository;

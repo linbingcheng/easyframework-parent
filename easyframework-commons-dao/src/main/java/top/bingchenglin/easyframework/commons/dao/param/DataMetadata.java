@@ -1,4 +1,4 @@
-package top.bingchenglin.easyframework.easyframwork.commons.dao.param;
+package top.bingchenglin.easyframework.commons.dao.param;
 
 import java.io.Serializable;
 

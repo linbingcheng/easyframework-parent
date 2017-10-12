@@ -1,4 +1,4 @@
-package top.bingchenglin.easyframework.easyframwork.commons.dao.nosql.redis;
+package top.bingchenglin.easyframework.commons.dao.nosql.redis;
 
 import java.lang.annotation.*;
 import java.util.concurrent.TimeUnit;

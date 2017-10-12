@@ -1,7 +1,8 @@
-package top.bingchenglin.easyframework.easyframwork.commons.dao.nosql.redis;
+package top.bingchenglin.easyframework.commons.dao.nosql.redis;
 
 
-import top.bingchenglin.easyframework.easyframwork.commons.dao.param.DBQueryParam;
+
+import top.bingchenglin.easyframework.commons.dao.param.DBQueryParam;
 
 import java.io.Serializable;
 import java.util.List;

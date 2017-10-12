@@ -1,6 +1,6 @@
-package top.bingchenglin.easyframework.easyframwork.commons.dao.db.query;
+package top.bingchenglin.easyframework.commons.dao.db.query;
 
-import top.bingchenglin.easyframework.easyframwork.commons.dao.param.DBQueryParam;
+import top.bingchenglin.easyframework.commons.dao.param.DBQueryParam;
 import org.apache.commons.beanutils.ConvertUtils;
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.commons.lang3.StringUtils;
